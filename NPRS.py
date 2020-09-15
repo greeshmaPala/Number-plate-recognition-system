@@ -235,8 +235,6 @@ def main():
 	data = {'Date_Time': [time.asctime(time.localtime(time.time()))],'Vehicle_number': [text], 'State' : [check_state], 'Valid/Invalid' : [check_if_valid], 'Unique_code' : [unique_num]}
 	df = pd.DataFrame(data, columns = ['Date_Time', 'Vehicle_number', 'State', 'Valid/Invalid', 'Unique_code' ])
 	df.to_csv('Dataset_VehicleNo.csv')
-	##cv2.waitKey(0)
-	##cv2.destroyAllWindows() 
 main()
 
 
