@@ -1,8 +1,4 @@
-'''
 
-DO NOT REMOVE THE DOUBLE COMMENTS LINES (##)
-
-'''
 
 import cv2 
 import imutils # to recognizing contours...
@@ -14,7 +10,6 @@ import argparse
 import time
 import pandas as pd
 import sys
-##pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 
 def fun_state(state):
@@ -128,7 +123,6 @@ def fun_valid(district):
 
 
 def main():
-	idx = '7'
   
 #######  GREY SCALE   ########
 	img = cv2.imread('mc.jpeg',cv2.IMREAD_COLOR)
@@ -141,7 +135,6 @@ def main():
 	cnts,new = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 	img1=img.copy()
 	cv2.drawContours(img1,cnts,-1,(0,255,0),3)
-##cv2.imshow("img1",img1)
 	cv2.waitKey(0)
 
 ####### CONTOURS BASED ON AREA #######
@@ -150,13 +143,10 @@ def main():
 	screenCnt = None #will store the number plate contour
 	img2 = img1.copy()
 	cv2.drawContours(img2,cnts,-1,(0,255,0),3) 
-##cv2.imshow("img2",img2) #top 30 contours
 	cv2.waitKey(0)
 	count=0
-	idx = 7
-    # loop over contours
+	idx = 'cropped'
 	for c in cnts:
-      # approximate the contour
             peri = cv2.arcLength(c, True)
             approx = cv2.approxPolyDP(c, 0.018 * peri, True)
             if len(approx) == 4: #chooses contours with 4 corners
@@ -171,7 +161,7 @@ def main():
 	cv2.drawContours(img, [screenCnt], -1, (0, 255, 0), 3)
 	##cv2.imshow("Final image with plate detected",img)
 	##cv2.waitKey(0)
-	Cropped_loc='P.jpeg' #the filename of cropped image
+	Cropped_loc='cropped.jpeg' #the filename of cropped image
 	##cv2.imshow("cropped",cv2.imread(Cropped_loc))
 
 ####### IMAGE AND STRING  #######
