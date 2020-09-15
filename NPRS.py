@@ -125,7 +125,7 @@ def fun_valid(district):
 def main():
   
 #######  GREY SCALE   ########
-	img = cv2.imread('mc.jpeg',cv2.IMREAD_COLOR)
+	img = cv2.imread('car.jpeg',cv2.IMREAD_COLOR)
 	img = imutils.resize(img, width=500 )
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert to grey scale
 	gray = cv2.bilateralFilter(gray, 11, 17, 17) #Blur to reduce noise
